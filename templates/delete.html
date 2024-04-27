@@ -1,0 +1,830 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>komPaines</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/jumbotron/">
+
+    
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+<link href="/docs/5.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+    <!-- Favicons -->
+<link rel="apple-touch-icon" href="/docs/5.3/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="manifest" href="/docs/5.3/assets/img/favicons/manifest.json">
+<link rel="mask-icon" href="/docs/5.3/assets/img/favicons/safari-pinned-tab.svg" color="#712cf9">
+<link rel="icon" href="/docs/5.3/assets/img/favicons/favicon.ico">
+<meta name="theme-color" content="#712cf9">
+    <style>
+        .red-background {
+            background-color: red;
+        }
+        .green-background {
+            background-color: green;
+        }
+        .blue-background {
+            background-color: blue;
+        }
+        .themed-grid-col {
+            height: 50px; /* Dikey ortalamayı göstermek için yükseklik ayarı */
+            display: flex;
+            align-items: center; /* Dikey ortalamayı sağlar */
+            justify-content: center; /* Yatay ortalamayı sağlar */
+        }
+    </style>
+
+<style>
+    .bd-placeholder-img {
+      font-size: 1.125rem;
+      text-anchor: middle;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      user-select: none;
+    }
+
+    @media (min-width: 768px) {
+      .bd-placeholder-img-lg {
+        font-size: 3.5rem;
+      }
+    }
+
+    .b-example-divider {
+      width: 100%;
+      height: 3rem;
+      background-color: rgba(0, 0, 0, .1);
+      border: solid rgba(0, 0, 0, .15);
+      border-width: 1px 0;
+      box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+    }
+
+    .b-example-vr {
+      flex-shrink: 0;
+      width: 1.5rem;
+      height: 100vh;
+    }
+
+    .bi {
+      vertical-align: -.125em;
+      fill: currentColor;
+    }
+
+    .nav-scroller {
+      position: relative;
+      z-index: 2;
+      height: 2.75rem;
+      overflow-y: hidden;
+    }
+
+    .nav-scroller .nav {
+      display: flex;
+      flex-wrap: nowrap;
+      padding-bottom: 1rem;
+      margin-top: -1px;
+      overflow-x: auto;
+      text-align: center;
+      white-space: nowrap;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .btn-bd-primary {
+      --bd-violet-bg: #712cf9;
+      --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+
+      --bs-btn-font-weight: 600;
+      --bs-btn-color: var(--bs-white);
+      --bs-btn-bg: var(--bd-violet-bg);
+      --bs-btn-border-color: var(--bd-violet-bg);
+      --bs-btn-hover-color: var(--bs-white);
+      --bs-btn-hover-bg: #6528e0;
+      --bs-btn-hover-border-color: #6528e0;
+      --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+      --bs-btn-active-color: var(--bs-btn-hover-color);
+      --bs-btn-active-bg: #5a23c8;
+      --bs-btn-active-border-color: #5a23c8;
+    }
+
+    .bd-mode-toggle {
+      z-index: 1500;
+    }
+
+    .bd-mode-toggle .dropdown-menu .active .bi {
+      display: block !important;
+    }
+    .content-container {
+  background-color: #d3d3d3;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  font-size: 10px;
+  color: #0000002d;
+}
+
+.grid-item {
+  width: 24px;
+  height: 24px;
+  float: left; /* Hücreleri yan yana sıralamak için */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #0000003d; /* Hücre sınırlarını gösterir */
+  box-sizing: border-box; /* Border genişliği toplam genişliği etkilemesin diye */
+}
+
+.grid-item:nth-of-type(100n + 1) {
+  clear: both;
+}
+
+.hidden {
+  visibility: hidden; /* Görünmeyen içerik */
+}
+
+
+.block-containerxx {
+margin-bottom: 30px;
+
+}
+
+
+
+.blocks-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Yeni satıra geçmeye izin ver */
+  justify-content:flex-start; /* İçerikleri eşit olarak ortala */
+  width: 100%; /*Genişlik tam sayfa kaplasın */
+  gap: 0; /* Aralarda boşluk olmasın */
+  background-color: #00000009;
+  
+
+
+}
+
+.block-container {
+  display: flex;
+  flex-direction: row; /* İçeriği yatay hizala */
+  flex-wrap: wrap; /* İçeriği sarmala */
+  justify-content: center; /* İçerikleri yatay olarak ortala */
+  align-items: center; /* İçerikleri dikey olarak ortala */
+  width: 72px; /* Toplam genişlik */
+  height: 72px; /* Toplam yükseklik */
+  margin: 0px; /* Çevresinde boşluk yok */
+  padding: 0px; /* İç padding yok */
+  gap: 0px;
+  border: 0.7px solid #ffffff;
+  
+}
+
+
+
+@media (max-width: 768px) {
+  /* Mobil cihazlar için stil */
+  .point {
+    width: 100%; /* Mobil ekranın tamamını kapla */
+    height: 23.3px;
+  }
+}
+
+/* İlave açıklama yazısı için genel stil */
+.description {
+  display: none; /* Varsayılan olarak gizle */
+}
+
+@media (min-width: 769px) {
+  /* Büyük ekranlarda açıklama yazısını göster */
+  .description {
+    display: block;
+    flex: 1;
+    padding-left: 10px; /* Sol tarafa boşluk ekle */
+  }
+}
+.filled {
+  background-color: #ffffff; /* Daha açık gri renk */
+  color: #ffffff; /* Yazı rengi siyah */
+}
+
+.nocountry {
+  background-color: #ffacac; /* Daha açık gri renk */
+  color: #ffacac;; /* Yazı rengi siyah */
+}
+
+.point.blocks-choosen {
+    background-color: #add8e6; /* Hafif mavi arkaplan */
+    border: 2px solid blue; /* Mavi kenarlık */
+}
+
+
+
+.empty {
+  background-color: #eeeeee; /* Daha açık gri renk */
+  color: #ffffff; /* Yazı rengi siyah */
+}
+
+footer {
+  clear: both; /* Üstteki float öğelerden etkilenmemesi için */
+  width: 100%; /* Footer'ın genişliğini ayarla */
+ /* Üst ve altta 10px padding */
+  text-align: left; /* Metni sola hizala */
+  margin-top: 30px; /* Üstteki içeriklerle arasında 30px boşluk bırak */
+  padding-bottom: 0; /* Alt padding yok */
+}
+
+.footer1 {
+  padding:1px 0;
+}
+
+
+.footer2 { /* Arka plan rengi farklı olsun */
+  padding: 10px 0;
+}
+
+.location-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;  /* Sağa yaslamak için */
+    padding-left: 20px;
+}
+
+.country-list span {
+    margin-left: 10px;  /* Ülkeler arası boşluk */
+    background-color: #f0f0f0;  /* Arka plan rengi */
+    padding: 2px 6px;  /* İç boşluk */
+    border-radius: 4px;  /* Kenar yuvarlaklığı */
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-icon {
+    cursor: pointer;
+}
+
+.country-mismatch img {
+    position: relative; /* Pozisyon ayarı */
+}
+
+.country-mismatch {
+    position: relative; /* Pozisyon ayarı, içindeki mutlak konumlandırılmış elementler için */
+}
+
+.country-mismatch::after {
+    content: ''; /* İçerik ekleme */
+    position: absolute; /* Pozisyon türü */
+    top: 0; /* Üstten pozisyon */
+    left: 0; /* Soldan pozisyon */
+    right: 0; /* Sağdan sınırla */
+    bottom: 0; /* Alttan sınırla */
+    background-color: rgb(255, 251, 165); /* Yarı saydam kırmızı renk */
+    pointer-events: none;
+}
+
+
+.floating-action-button {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    background-color: #bdbdbd;
+    border-radius: 30px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-decoration: none;
+    border: none; /* Varsayılan buton kenarlıklarını kaldır */
+    padding: 0; /* Varsayılan dolguyu sıfırla */
+    cursor: pointer;
+    outline: none; /* Odaklanma çerçevesini kaldır */
+}
+HTML
+
+.floating-action-button img {
+    width: 30px; /* İkon genişliği */
+    height: 30px; /* İkon yüksekliği */
+}
+  </style>
+
+<style>
+  .country-dropdown {
+    display: block; /* Dropdown'ı sürekli görünür yap */
+    margin-left: 20px; /* Açıklama metninden sonra boşluk */
+    padding: 5px 10px; /* Padding ayarları */
+  }
+
+
+.blocks-choosen {
+  position: relative;
+  z-index: 10; 
+  background-color: rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.5); 
+}
+
+#hr1 {
+    display: none;  /* Varsayılan olarak hr1 id'li hr'yi gizle */
+}
+
+
+@media (max-width: 1300px) {
+
+  
+    #hr1 {
+        display: block; /* Ekran genişliği 1300px veya daha az olduğunda hr1 id'li hr'yi göster */
+    }
+}
+
+
+.blocks-choosen::after {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid white;
+  pointer-events: none; 
+  z-index: 20;
+}
+
+.block-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; /* İçeriği başlangıçta hizalama */
+  align-items: stretch; /* İçeriği dikey olarak uzat */
+  padding: 0; /* Etrafına padding eklemeyin */
+  width: 100%; /* Ekran genişliğini tam olarak kapla */
+  height: auto; /* Yüksekliği otomatik ayarla */
+}
+
+.point {
+  position: relative;
+  width: calc(33.33% - 2px); /* Genişlik ekranın üçte biri, her bir nokta arasında 2px boşluk bırak */
+  padding-top: calc(33.33% - 6px); /* Yüksekliği genişlikle aynı yap, böylece kare olur */
+  margin: 1px; /* Her nokta arasında 3px boşluk */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 0.5px solid rgba(255, 255, 255, 0.6); /* İnce beyaz çerçeve */
+}
+.point.filled img {
+  
+  width: calc(100% - 2px); /* Genişlik ekranın üçte biri, her bir nokta arasında 2px boşluk bırak */
+  height: auto;
+  object-fit:cover; /* Görseli orantılı bir şekilde kapla, gerekiyorsa kırp */
+  object-position: center;
+  padding-bottom: calc(100% - 2px); 
+}
+
+
+.point.empty img {
+
+  min-width: 100%;  /* Maksimum genişlik %100 (taşma önleme) */
+  min-height: 100%; /* Maksimum yükseklik %100 (taşma önleme) */
+  object-fit:cover; /* Görseli orantılı bir şekilde kapla, gerekiyorsa kırp */
+  object-position: center;
+  padding-bottom: calc(100% - 2px); 
+
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between; /* Bloklar arasında eşit boşluk bırak */
+    align-items: flex-start; /* Üst hizalama yap, gerekirse başka bir değer kullan */
+    flex-wrap: wrap; /* İçerik çok fazlaysa yeni satıra geç */
+}
+
+.upload-icon {
+  width: 25px;
+  height: 25px;
+  padding-bottom: calc(100% ); 
+}
+
+
+.upload-icon img {
+  min-width: 100%;  /* Maksimum genişlik %100 (taşma önleme) */
+  min-height: 100%; /* Maksimum yükseklik %100 (taşma önleme) */
+  object-fit:cover; /* Görseli orantılı bir şekilde kapla, gerekiyorsa kırp */
+  object-position: center;
+  padding-bottom: calc(100% - 2px); 
+  transition: opacity 0.3s ease;
+}
+
+.upload-icon:hover img {
+  opacity: 0.7;
+}
+
+.block-container {
+  width: 100%; /* Kapsayıcıları tam genişlik yap */
+  }
+  
+.block-container-2 {
+  margin-top: 15px;
+  margin-right: 15px;
+  margin-left: 15px;
+  align-items: end;
+  width: 100%; /* Kapsayıcıları tam genişlik yap */
+  text-align: left; /* 6 nokta için genişlik + aralarda 2px */ /* 6 nokta için yükseklik + aralarda 2px */
+  }
+
+@media (min-width: 1300px) {
+  .block-container {
+    max-width: calc(72px * 6 + 5px); /* 6 nokta için genişlik + aralarda 2px */
+    height: calc(72px * 6 + 3px); /* 6 nokta için yükseklik + aralarda 2px */
+  }
+
+  .block-container-2 {
+    width: calc(72px * 12 - 35px);
+    justify-content: end;
+     /* 6 nokta için genişlik + aralarda 2px */ /* 6 nokta için yükseklik + aralarda 2px */
+  }
+
+  .point {
+    width: 142px; /* Her noktanın genişliği */
+    height: 142px; /* Her noktanın yüksekliği */
+    border: 0.1px solid rgba(255, 255, 255, 0.6); /* İnce beyaz çerçeve */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  }
+  .container-3 {
+            display: none;
+        }
+
+        @media (min-width: 1301px) {
+            .container-3 {
+                display: block;
+            }
+        }
+
+
+}
+
+@media (max-width: 1300px) {
+  .form-group input, .form-group select {
+        width: 100%;
+        box-sizing: border-box; /* Padding ve border genişliği toplam genişlikten düşmez */
+    }
+    .form-group:last-child { /* Sadece son form-group için geçerli */
+        margin-bottom: 0; /* margin-bottom'ı 0 yap */
+    }
+}
+
+
+
+#specific-point::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 251, 165, 0.2); /* Yarı saydam sarı renk */
+  pointer-events: none; /* Pseudo-element üzerindeki fare etkileşimlerini devre dışı bırakır */
+}
+.container-3 {
+        display: none;
+    }
+
+    /* Ekran genişliği 1300px'den büyük olduğunda .container-3 sınıfını göster */
+    @media (min-width: 1301px) {
+        .container-3 {
+            display: block;
+        }
+    }
+
+</style>
+<style>
+  hr.vertical {
+      width: 100px; /* HR çizgisinin yüksekliği olacak */
+      transform: rotate(90deg); /* 90 derece döndürme */
+      transform-origin: left top; /* Dönüş noktasını ayarlama */
+      height: 1px; /* HR çizgisinin genişliği */
+      background-color: black; /* HR çizgisinin rengi */
+      border: none; /* Varsayılan kenarlıkları kaldır */
+  }
+
+  .responsive-hr {
+    display: none;  /* Varsayılan olarak responsive-hr sınıfına sahip hr'leri gizle */
+}
+
+@media (max-width: 1300px) {
+    .responsive-hr {
+        display: block; /* Ekran genişliği 1300px veya daha az olduğunda responsive-hr sınıfına sahip hr'leri göster */
+    }
+}
+
+.item-choosen {
+  position: relative;
+  z-index: 10; 
+  background-color: rgba(255, 255, 255, 0.2); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); 
+}
+
+.item-choosen::after {
+  content: ''; 
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 1px solid white;
+  pointer-events: none; 
+  z-index: 20;
+}
+
+</style>
+</head>
+
+
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" class="d-none">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"></path>
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z"></path>
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z"></path>
+        <path d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z"></path>
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z"></path>
+      </symbol>
+    </svg>
+
+    
+    
+<main>
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-body-emphasis text-decoration-none">
+          <img src="{% static 'images/logo2.png' %}" alt="Logo" width="50" height="50">
+          <span style="margin-left: 10px; color: #000000;" class="fs-4">komPaines.{{ businessline.name }}.delete</span>
+      </a>
+      <!-- Dropdown Menü -->
+
+  </header>
+  
+
+    <div class="blocks-wrapper" >
+
+      
+      <form method="post" enctype="multipart/form-data" onsubmit="return validateForm()" class="form-container" >
+        <input type="hidden" name="block" id="selected_block_id">
+        {% csrf_token %}
+      <div class="block-container" onclick="selectBlock({{ block.id }}, this)">
+        {% if block.one.image %}
+        <div class="point filled" id="specific-point" data-block-id="{{ block.one.id }}" data-country-ids="{% for country in block.one.country.all %}{{ country.id }} {% endfor %}">
+          <img src="{{ block.one.image.url }}" alt="Image description">
+      </div>
+    {% else %}
+    <div class="point empty">
+
+    </div>
+
+
+
+    {% endif %}
+    {% if block.two.image %}
+    <div class="point filled" id="specific-point" data-block-id="{{ block.two.id }}" data-country-ids="{% for country in block.two.country.all %}{{ country.id }} {% endfor %}">
+      <img src="{{ block.two.image.url }}" alt="Image description">
+  </div>
+    {% else %}
+    <div class="point empty">
+
+    </div>
+    {% endif %}
+    {% if block.three.image %}
+    <div class="point filled" id="specific-point" data-block-id="{{ block.three.id }}" data-country-ids="{% for country in block.three.country.all %}{{ country.id }} {% endfor %}">
+      <img src="{{ block.three.image.url }}" alt="Image description">
+  </div>
+            {% else %}
+            <div class="point empty">
+
+            </div>
+            {% endif %}
+            {% if block.four.image %}
+            <div class="point filled" id="specific-point" data-block-id="{{ block.four.id }}" data-country-ids="{% for country in block.four.country.all %}{{ country.id }} {% endfor %}">
+              <img src="{{ block.four.image.url }}" alt="Image description">
+          </div>
+        {% else %}
+        <div class="point empty">
+
+        </div>
+        {% endif %}
+      
+        {% if block.five.image %}
+        <div class="point filled" id="specific-point"  data-block-id="{{ block.five.id }}" data-country-ids="{% for country in block.five.country.all %}{{ country.id }} {% endfor %}">
+          <img src="{{ block.five.image.url }}" alt="Image description">
+      </div>
+    {% else %}
+        <div class="point empty">
+
+        </div>
+    {% endif %}
+      
+    {% if block.six.image %}
+          <div class="point filled" id="specific-point" data-block-id="{{ block.six.id }}" data-country-ids="{% for country in block.six.country.all %}{{ country.id }} {% endfor %}">
+            <img src="{{ block.six.image.url }}" alt="Image description">
+        </div>
+    {% else %}
+          <div class="point empty">
+
+          </div>
+    {% endif %}
+      
+    {% if block.seven.image %}
+          <div class="point filled" id="specific-point"  data-block-id="{{ block.seven.id }}" data-country-ids="{% for country in block.seven.country.all %}{{ country.id }} {% endfor %}">
+            <img src="{{ block.seven.image.url }}" alt="Image description">
+        </div>
+    {% else %}
+          <div class="point empty">
+
+          </div>
+    {% endif %}
+    {% if block.eight.image %}
+          <div class="point filled" id="specific-point" data-block-id="{{ block.eight.id }}" data-country-ids="{% for country in block.eight.country.all %}{{ country.id }} {% endfor %}">
+            <img src="{{ block.eight.image.url }}" alt="Image description">
+        </div>
+    {% else %}
+          <div class="point empty">
+
+          </div>
+    {% endif %}
+      
+    {% if block.nine.image %}
+          <div class="point filled" id="specific-point" data-block-id="{{ block.nine.id }}" data-country-ids="{% for country in block.nine.country.all %}{{ country.id }} {% endfor %}">
+            <img src="{{ block.nine.image.url }}" alt="Image description">
+        </div>
+    {% else %}
+          <div class="point empty">
+
+          </div>
+    {% endif %}
+      
+      </div>
+    
+
+      <div class="block-container-2" style="margin-bottom: -5px; text-align: right;">
+        <div class="container-3">
+            <p class="display-5" style="font-size: 30px;margin-bottom: 28px; text-align: left;"><strong>Choose and Delete Your Item</strong></p>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">
+                <p class="display-5" style="font-size: 20px;margin-top: 0px;"><strong>E-mail Address Confirmation</strong></p>
+            </label>
+            <input type="text" class="form-control" style="width: 100%;" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}">
+        </div>
+        <div class="form-group">
+          <p class="display-5" style="font-size: 20px;margin-top: 15px;"><strong>Item Password</strong></p>
+          <input type="password" class="form-control" placeholder="Enter item delete password" name="password" style="width: 100%;" id="{{ form.password.id_for_label }}">
+      </div>
+        <hr style="margin-top: 25px;">
+        <p class="display-5" style="font-size: 15px; text-align: left;;margin-top: 20px; padding-bottom: 10px;"><strong>
+          Welcome to <strong>delete page.</strong> Choose your image and confirm its data. After that, your item will gone directly. </strong></p>
+
+    </div>
+    
+
+
+
+  
+
+  <button type="submit" id="continue-button" class="floating-action-button">
+    <img src="{% static 'images/continue2.png' %}" alt="Continue" />
+</button>
+</form>
+</div>
+
+
+  
+
+    
+       <footer class="pt-3 mt-4 text-body-secondary border-top footer2" style="padding-top: 30px;">
+        created by dogardo © 2024
+       </footer>
+
+       {% if messages %}
+       <div id="messages" style="display:none;">
+           {% for message in messages %}
+           <div class="{{ message.tags }}">{{ message }}</div>
+           {% endfor %}
+       </div>
+       <script>
+           window.onload = function() {
+               var messageDiv = document.getElementById('messages');
+               messageDiv.style.display = 'block'; // Mesajları göster
+               setTimeout(function() {
+                   messageDiv.style.display = 'none'; // Birkaç saniye sonra mesajları gizle
+               }, 5000); // 5000 milisaniye = 5 saniye
+           };
+       </script>
+       {% endif %}
+<body>
+ 
+
+</body>
+
+
+
+  </div>
+</main>
+<script src="/docs/5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+
+
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+  const blocks = document.querySelectorAll('.point.filled');
+
+  blocks.forEach(block => {
+    block.addEventListener('click', function () {
+      // Önce tüm seçimleri kaldır
+      blocks.forEach(b => b.classList.remove('item-choosen'));
+      // Seçili bloğa 'item-choosen' sınıfını ekle
+      this.classList.add('item-choosen');
+
+      // Seçili bloğun ID'sini formdaki gizli input'a ata
+      document.getElementById('selected_block_id').value = this.getAttribute('data-block-id');
+    });
+  });
+});
+
+  </script>
+
+<script>
+
+function validateForm() {
+
+var email = document.getElementById('{{ form.name.id_for_label }}').value;
+var password = document.getElementById('{{ form.password.id_for_label }}').value;
+
+var selectedBlockId = document.getElementById('selected_block_id').value;
+if (selectedBlockId) {
+    var form = document.querySelector('.form-container');
+} else {
+    alert("You must select the block first.");
+    return false;
+}
+
+var emailRegex = /^([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,})$/;
+if (email.length === 0 || !emailRegex.test(email)) {
+    alert("Email address must be in the format of 'name@domain.extension'. Please enter a valid email address.");
+    return false;
+}
+
+if (password.length === 0) {
+    alert("Please enter a valid password.");
+    return false;
+}
+
+
+
+return true; // Tüm kontrollerden geçerse formu gönder
+}
+
+</script>
+
+{% if messages %}
+    <script>
+        window.onload = function() {
+            {% for message in messages %}
+            alert('{{ message }}');  // Her bir mesaj için JavaScript alert göster
+            {% endfor %}
+        };
+    </script>
+{% endif %}
+</body>
+
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
